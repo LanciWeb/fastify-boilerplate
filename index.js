@@ -2,11 +2,13 @@ const fastify = require('fastify');
 const app = fastify();
 const mongoose = require('mongoose');
 
-const mongoUrl =
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/fastify_users';
+const mongoUrl = 'mongodb://localhost:27017/fastify_users';
 /** connect to MongoDB datastore */
 try {
-  mongoose.connect(mongoUrl);
+  mongoose.connect(mongoUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 } catch (error) {
   console.error(error);
 }
