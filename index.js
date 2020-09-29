@@ -1,7 +1,7 @@
 const fastify = require('fastify');
 const app = fastify();
 const mongoose = require('mongoose');
-
+const userRoutes = require('./src/routes/userRoutes');
 const mongoUrl = 'mongodb://localhost:27017/fastify_users';
 /** connect to MongoDB datastore */
 try {
@@ -13,9 +13,7 @@ try {
   console.error(error);
 }
 
-app.get('/', (request, reply) => {
-  reply.send('Our first route');
-});
+userRoutes(app);
 
 app.listen(3000, (err, address) => {
   if (err) {
