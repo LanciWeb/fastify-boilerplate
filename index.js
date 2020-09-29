@@ -1,5 +1,15 @@
 const fastify = require('fastify');
 const app = fastify();
+const mongoose = require('mongoose');
+
+const mongoUrl =
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/fastify_users';
+/** connect to MongoDB datastore */
+try {
+  mongoose.connect(mongoUrl);
+} catch (error) {
+  console.error(error);
+}
 
 app.get('/', (request, reply) => {
   reply.send('Our first route');
