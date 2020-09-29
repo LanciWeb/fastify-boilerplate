@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/LanciWeb/fastify-boilerplate/issues"
   },
-  "homepage": "https://github.com/LanciWeb/fastify-boilerplate#readme"
+  "homepage": "https://github.com/LanciWeb/fastify-boilerplate#readme",
+  "dependencies": {
+    "fastify": "^3.4.1",
+    "mongoose": "^5.10.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
