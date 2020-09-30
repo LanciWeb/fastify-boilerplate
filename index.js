@@ -23,6 +23,12 @@ app.register(fastifyCashing);
 app.register(serverSession, serverConfig);
 app.register(auth0, auth0Config);
 
+app.get('/', async function (request, reply) {
+  // the credentials returned from Auth0 will be available in routes as request.session.credentials
+  return reply.send({ credentials: request.session.credentials });
+});
+userRoutes(app);
+
 app.listen(3000, (err, address) => {
   if (err) {
     console.error(err);
